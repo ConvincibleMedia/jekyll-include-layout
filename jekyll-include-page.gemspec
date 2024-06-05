@@ -4,7 +4,7 @@ require_relative "lib/include-page/version"
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-include-page"
-  spec.version = Jekyll::Plugins::IncludeLayout::VERSION
+  spec.version = Jekyll::Plugins::IncludePage::VERSION
   spec.authors = ["Convincible"]
   spec.email = ["development@convincible.media"]
 

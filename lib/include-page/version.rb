@@ -2,7 +2,7 @@
 
 module Jekyll
 module Plugins
-module IncludeLayout
+module IncludePage
 
   VERSION = "0.1.0"
 

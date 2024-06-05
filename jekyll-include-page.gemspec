@@ -8,12 +8,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["Convincible"]
   spec.email = ["development@convincible.media"]
 
-  spec.summary = "Include relative pages, processing them through layouts first."
-  spec.description = "Include relative pages, processing them through layouts first."
+  spec.summary = "A Jekyll tag plugin that includes a rendered page inside another page."
+  spec.description = "The included page will be processed according to its filetype and frontmatter, even if it's a page that is otherwise excluded from Jekyll rendering. This means you can include pages that specify a layout, and they will first be rendered through that layout before being included."
   spec.homepage = "https://www.github.com/ConvincibleMedia/jekyll-include-page"
   spec.required_ruby_version = ">= 2.6.0"
-
-  #spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = spec.homepage

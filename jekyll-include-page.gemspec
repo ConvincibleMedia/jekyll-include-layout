@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "lib/include-page/version"
+require_relative "lib/jekyll-include-page/version"
 
 Gem::Specification.new do |spec|
   spec.name = "jekyll-include-page"

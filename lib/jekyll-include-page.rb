@@ -45,6 +45,11 @@ class IncludePageTag < Jekyll::Tags::IncludeTag
 		newpage.output # Return that
 	end
 
+	# In this include tag, resolve page path to site source
+	def page_path(context)
+		tag_includes_dirs(context)[0]
+	end
+
 	# Overwrite tag_includes_dirs to return site source directory
 	def tag_includes_dirs(context)
 		site = context.registers[:site]
@@ -56,14 +61,13 @@ class IncludePageTag < Jekyll::Tags::IncludeTag
 	def locate_include_file(context, file)
 		# Insert this call to tag_includes_dirs overwritten by the include_relative tag
 		includes_dirs = tag_includes_dirs(context)
-		puts 'Using includes_dirs: ' + includes_dirs.to_s
 		# Checks all includes directories until it finds a valid file
 		# If in relative mode, the includes directories array will have just one entry, the current directory
 		includes_dirs.each do |dir|
 			path = PathManager.join(dir, file)
 			return Inclusion.new(@site, dir, file) if valid_include_file?(path, dir)
 		end
-		raise IOError, could_not_locate_message(file, @site.includes_load_paths, @site.safe)
+		raise IOError, could_not_locate_message(file, includes_dirs, @site.safe)
 	end
 
 	def valid_include_file?(path, dir)
